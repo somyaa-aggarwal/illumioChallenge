@@ -22,6 +22,9 @@ public class FileWriterUtil {
     }
 
     public static void writeTagCounts(Map<String, Integer> tagCounts, String fileName) throws IOException {
+        if (tagCounts == null) {
+            throw new NullPointerException("Tag counts map cannot be null.");
+        }
         createOutputDirectory(); //to ensure that the output directory exists
         String filePath = OUTPUT_DIR + File.separator + fileName;
         if (tagCounts == null || tagCounts.isEmpty()) {
@@ -46,6 +49,9 @@ public class FileWriterUtil {
     }
 
     public static void writePortProtocolCounts(Map<String, Integer> portProtocolCounts, String fileName) throws IOException {
+        if (portProtocolCounts == null) {
+            throw new NullPointerException("Port-protocol counts map cannot be null.");
+        }
         createOutputDirectory(); //to ensure that the output directory exists
         String filePath = OUTPUT_DIR + File.separator + fileName;
         if (portProtocolCounts == null || portProtocolCounts.isEmpty()) {
