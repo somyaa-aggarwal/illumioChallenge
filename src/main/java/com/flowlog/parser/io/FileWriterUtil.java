@@ -30,13 +30,24 @@ public class FileWriterUtil {
     }
 
     public static void writePortProtocolCounts(Map<String, Integer> portProtocolCounts, String fileName) throws IOException {
+        if (portProtocolCounts == null || portProtocolCounts.isEmpty()) {
+            System.err.println("⚠️ Warning: Port-protocol counts are empty. No data to write.");
+            return;
+        }
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileName))) {
             bw.write("Port/Protocol Combination Counts:\n");
             bw.write("Port,Protocol,Count\n");
             for (Map.Entry<String, Integer> entry : portProtocolCounts.entrySet()) {
                 String[] keyParts = entry.getKey().split(",");
                 bw.write(keyParts[0] + "," + keyParts[1] + "," + entry.getValue() + "\n");
+                System.out.println("Port-protocol counts successfully written to: " + fileName);
             }
+        }catch (IOException e) {
+            System.err.println("❌ Error writing port-protocol counts to file: " + fileName);
+            e.printStackTrace();
+        } catch (Exception e) {
+            System.err.println("❌ Unexpected error while writing port-protocol counts.");
+            e.printStackTrace();
         }
     }
 }
