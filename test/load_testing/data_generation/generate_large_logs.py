@@ -3,16 +3,16 @@ import time
 import csv
 import os
 
-# Determine the project root directory dynamically
-PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../"))  # Go up three levels to reach project root
-RESOURCE_DIR = os.path.join(PROJECT_ROOT, "resources")  # Point to the correct resources directory
+
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../"))  
+RESOURCE_DIR = os.path.join(PROJECT_ROOT, "resources")  
 PROTOCOL_LOOKUP_FILE = os.path.join(RESOURCE_DIR, "protocol_lookup.csv")
 OUTPUT_FILE = os.path.join(PROJECT_ROOT, "test/load_testing/data_generation", "generated_flow_logs30M.txt")
 
 # Default number of logs to generate
 DEFAULT_NUM_LOGS = 100000
 
-# Load protocol lookup from CSV
+
 def load_protocol_lookup():
     protocol_lookup = {}
     if not os.path.exists(PROTOCOL_LOOKUP_FILE):
@@ -31,7 +31,7 @@ def load_protocol_lookup():
 
     return protocol_lookup
 
-# Generate a random flow log entry
+
 def generate_flow_log(protocol_lookup):
     version = 2
     packet_id = random.randint(100000000000, 999999999999)
@@ -51,7 +51,7 @@ def generate_flow_log(protocol_lookup):
 
     return f"{version} {packet_id} {eni_id} {src_ip} {dest_ip} {src_port} {dst_port} {protocol_num} {packet_size} {total_bytes} {start_time} {end_time} {action} {status}"
 
-# Generate and save logs
+
 def generate_logs(num_logs=DEFAULT_NUM_LOGS):
     protocol_lookup = load_protocol_lookup()
     if not protocol_lookup:
@@ -64,7 +64,7 @@ def generate_logs(num_logs=DEFAULT_NUM_LOGS):
 
     print(f"Successfully generated {num_logs} flow logs in {OUTPUT_FILE}")
 
-# Main execution
+
 if __name__ == "__main__":
     num_logs = input(f"Enter number of logs to generate (default {DEFAULT_NUM_LOGS}): ") or DEFAULT_NUM_LOGS
     try:
