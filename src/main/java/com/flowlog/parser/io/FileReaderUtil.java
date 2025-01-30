@@ -54,7 +54,7 @@ public class FileReaderUtil {
      * Loads a lookup table from the given file path.
      * 
      * The lookup table maps port-protocol combinations to their corresponding tags.
-     * The file should be in CSV format with the structure: {@code port,protocol,tag}.
+     * The file should be in CSV format with the structure: {port,protocol,tag}.
      * 
      *
      * @param filePath Path to the lookup table file.
@@ -90,7 +90,7 @@ public class FileReaderUtil {
      * Loads a protocol lookup table from the given file path.
      * 
      * The protocol lookup table maps protocol numbers to their corresponding names.
-     * The file should be in CSV format with the structure: {@code protocol_number,protocol_name}.
+     * The file should be in CSV format with the structure: {protocol_number,protocol_name}.
      * 
      *
      * @param filePath Path to the protocol lookup table file.

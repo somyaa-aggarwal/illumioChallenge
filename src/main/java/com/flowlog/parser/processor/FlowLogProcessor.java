@@ -43,13 +43,13 @@ public class FlowLogProcessor {
     public void processLogEntry(String[] log) {
         String dstPort = log[5].trim();
         String protocolNum = log[7].trim();
-
+        
+        //TODO error-logging
         String protocol = protocolLookupTable.getOrDefault(protocolNum, "unknown").toLowerCase();
 
         // Creating a key for lookup (destination port + protocol)
         String key = dstPort + "," + protocol;
 
-        // Determining the tag based on the lookup table, defaulting to "Untagged" if not found
         String tag = lookupTable.getOrDefault(key, "Untagged");
 
         tagCounts.put(tag, tagCounts.getOrDefault(tag, 0) + 1);

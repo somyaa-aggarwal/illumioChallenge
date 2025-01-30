@@ -18,7 +18,6 @@ The Flow Log Parser is a Java-based utility that reads network flow logs, maps e
 3. The protocol lookup table file must contain two columns: protocol_number,protocol_name.
 4. Log parsing is case-insensitive.
 5. Log entries with missing or malformed data are skipped with a warning.
-6. If a port-protocol combination does not exist in the lookup table, it is tagged as "Untagged".
 
 ### System Requirements
 
@@ -135,17 +134,15 @@ time java -cp out main.java.com.flowlog.parser.FlowLogParser test/load_testing/d
 
 ### Observations: 
 
-| Log Size         | Workers | User Time (s) | System Time (s) | CPU Usage (%) | Total Execution Time (s) |
-|-----------------|---------|--------------|----------------|--------------|-------------------------|
-| 10MB (100K logs) | 1       | 0.60         | 0.07           | 153%         | 0.436                   |
-| 1GB (10M logs)  | 1       | 17.79        | 0.52           | 142%         | 12.839                   |
-| 3GB (30M logs)  | 1       | 59.23        | 1.57           | 151%         | 40.084                   |
+| Log Size        | User Time (s)| System Time (s)| Total Execution Time (s)|
+|-----------------|--------------|----------------|-------------------------|
+| 10MB (100K logs)| 0.60         | 0.07           | 0.436                   |
+| 1GB (10M logs)  | 17.79        | 0.52           | 12.839                  |
+| 3GB (30M logs)  | 59.23        | 1.57           | 40.084                  |
 
 ### Observational Analysis: 
 1. The execution time scales almost linearly with the increase in log size. The processing time for 10M logs (1GB) is ~12.8s, and for 30M logs (3GB), it increases 3x to ~40s.
 This confirms that this implementation has a time complexity of O(N), where N is the number of log entries.
-2. The CPU utilization is consistently above 140%, indicating that the program effectively utilizes multiple CPU cores via Java's I/O operations.
-However, since only 1 worker was used, the potential for parallelization is not fully utilized.
 
 ### Time Complexity Analysis
 
@@ -161,6 +158,6 @@ However, since only 1 worker was used, the potential for parallelization is not 
 2. Implement multi-threading to speed up log processing and leverage multiple CPU cores.
 3. Extend support to various log formats beyond AWS VPC Flow Logs.
 4. Store parsed results in a relational or NoSQL database for advanced querying and analytics.
-5. Adapt the parser for real-time data ingestion using frameworks like Apache Kafka or Flink.
+
 
 
