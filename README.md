@@ -84,7 +84,7 @@ bash scripts/compile.sh
 ````
 #### Running the Parser:
 ````
-bash scripts/run.sh <flow_logs_file> <lookup_table_file> <protocol_lookup_file>
+bash scripts/run.sh 
 ````
 ##### Expected output: ````output/tag_counts_output.txt```` ````output/port_protocol_counts_output.txt````
 
