@@ -44,7 +44,9 @@ public class FlowLogProcessor {
         String dstPort = log[5].trim();
         String protocolNum = log[7].trim();
         
-        //TODO error-logging
+        if (!protocolLookupTable.containsKey(protocolNum)) {
+            System.err.println("Warning: Protocol number " + protocolNum + " does not have a mapping in the protocol lookup table. Rectfify protocol lookup source");
+        }
         String protocol = protocolLookupTable.getOrDefault(protocolNum, "unknown").toLowerCase();
 
         // Creating a key for lookup (destination port + protocol)
