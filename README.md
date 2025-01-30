@@ -1,6 +1,6 @@
 ## Overview
 
-The Flow Log Parser is a Java-based utility that reads network flow logs, maps each entry to a tag using a lookup table, and identifies port-protocol occurrences
+The Flow Log Parser is a Java-based utility that processes network flow logs by mapping each entry to a tag using a predefined lookup table and recording port-protocol occurrences. It efficiently parses log data, applies tag mappings, and generates insights into network traffic patterns.
 
 ###  Features
 
