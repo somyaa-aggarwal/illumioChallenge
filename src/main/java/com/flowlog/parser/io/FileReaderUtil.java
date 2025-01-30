@@ -11,22 +11,22 @@ import main.java.com.flowlog.parser.processor.FlowLogProcessor;
 
 /**
  * Utility class for reading and processing flow log files and lookup tables.
- * <p>
+ * 
  * This class provides methods to:
  * - Read and parse flow logs.
  * - Load lookup tables for mapping port-protocol combinations to tags.
  * - Load protocol lookup tables for mapping protocol numbers to names.
- * </p>
+ * 
  */
 
 public class FileReaderUtil {
 
     /**
      * Reads and processes flow logs from the given file path.
-     * <p>
+     * 
      * Each line in the file represents a flow log entry. The method extracts relevant
      * information, validates the format, and passes the entry to the {@link FlowLogProcessor}.
-     * </p>
+     * 
      *
      * @param filePath  Path to the flow logs file.
      * @param processor The {@link FlowLogProcessor} instance to process log entries.
@@ -52,10 +52,10 @@ public class FileReaderUtil {
 
     /**
      * Loads a lookup table from the given file path.
-     * <p>
+     * 
      * The lookup table maps port-protocol combinations to their corresponding tags.
      * The file should be in CSV format with the structure: {@code port,protocol,tag}.
-     * </p>
+     * 
      *
      * @param filePath Path to the lookup table file.
      * @return A map where keys are "port,protocol" and values are corresponding tags.
@@ -88,10 +88,10 @@ public class FileReaderUtil {
 
     /**
      * Loads a protocol lookup table from the given file path.
-     * <p>
+     * 
      * The protocol lookup table maps protocol numbers to their corresponding names.
      * The file should be in CSV format with the structure: {@code protocol_number,protocol_name}.
-     * </p>
+     * 
      *
      * @param filePath Path to the protocol lookup table file.
      * @return A map where keys are protocol numbers and values are their corresponding protocol names.
