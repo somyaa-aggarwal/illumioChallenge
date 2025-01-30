@@ -71,7 +71,7 @@ def save_lookup_table(data, filename=output_lookup_file):
 
 
 if __name__ == "__main__":
-    # Prompt user for custom number of mappings
+    
     try:
         num_entries = int(input(f"Enter number of lookup table entries (default {DEFAULT_MAPPINGS}): ") or DEFAULT_MAPPINGS)
         print(f"Generating {num_entries} lookup table entries...")
