@@ -18,7 +18,7 @@ The Flow Log Parser is a Java-based utility that processes network flow logs by 
 3. The protocol lookup table file must contain two columns: protocol_number,protocol_name.
 4. Log parsing is case-insensitive.
 5. Log entries with missing or malformed data are skipped with a warning.
-6. If a protocol number does not map to a human-readable keyword, it will be set as 'unknown' and the log entry will be tagged as "Untagged" with a warning message displayed to the user.
+6. If a protocol number does not map to a human-readable keyword, it will be set as 'unknown' with a warning message displayed to the user and the log entry will be tagged as "Untagged".
 
 ### System Requirements
 
