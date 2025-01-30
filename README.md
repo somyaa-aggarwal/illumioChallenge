@@ -94,7 +94,7 @@ bash scripts/run.sh <flow_logs_file> <lookup_table_file> <protocol_lookup_file>
 
 #### To compile unit and integration test, run (in project directory):
 ````
-bash test_scripts/complie_tests.sh
+bash test_scripts/compile_tests.sh
 ````
 #### To run Unit Tests, use:
 ````
