@@ -164,4 +164,3 @@ However, since only 1 worker was used, the potential for parallelization is not 
 5. Adapt the parser for real-time data ingestion using frameworks like Apache Kafka or Flink.
 
 
-
